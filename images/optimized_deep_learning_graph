@@ -25,7 +25,7 @@ digraph "Graph" {
 		10
 		rank=same
 		111111 [label="Input Units: 12 (+2 more)
-Activation: relu" color=white fontcolor=black fontsize=18 shape=rectangle]
+Activation: linear" color=white fontcolor=black fontsize=18 shape=rectangle]
 	}
 	1 -> 11
 	2 -> 11
@@ -130,8 +130,8 @@ Activation: relu" color=white fontcolor=black fontsize=18 shape=rectangle]
 	subgraph cluster_1 {
 		color=white
 		rank=same
-		101010 [label="Units: 60 (+50 more)
-Activation: relu" color=white fontcolor=black fontsize=18 shape=rectangle]
+		101010 [label="Units: 64 (+54 more)
+Activation: linear" color=white fontcolor=black fontsize=18 shape=rectangle]
 		11 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
 		12 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
 		13 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
@@ -246,7 +246,7 @@ Activation: relu" color=white fontcolor=black fontsize=18 shape=rectangle]
 	subgraph cluster_2 {
 		color=white
 		rank=same
-		202020 [label="Units: 30 (+20 more)
+		202020 [label="Units: 64 (+54 more)
 Activation: relu" color=white fontcolor=black fontsize=18 shape=rectangle]
 		21 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
 		22 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
@@ -269,13 +269,95 @@ Activation: relu" color=white fontcolor=black fontsize=18 shape=rectangle]
 	28 -> 31
 	29 -> 31
 	30 -> 31
+	subgraph cluster_3 {
+		color=white
+		31 [label="Dropout
+Rate: 0.2" fillcolor="#f39c12" fontcolor=black shape=Mcircle style=filled]
+	}
+	31 -> 32
+	31 -> 33
+	31 -> 34
+	31 -> 35
+	31 -> 36
+	31 -> 37
+	31 -> 38
+	31 -> 39
+	31 -> 40
+	31 -> 41
+	subgraph cluster_4 {
+		color=white
+		rank=same
+		313131 [label="Units: 32 (+22 more)
+Activation: relu" color=white fontcolor=black fontsize=18 shape=rectangle]
+		32 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		33 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		34 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		35 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		36 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		37 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		38 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		39 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		40 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		41 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+	}
+	32 -> 42
+	33 -> 42
+	34 -> 42
+	35 -> 42
+	36 -> 42
+	37 -> 42
+	38 -> 42
+	39 -> 42
+	40 -> 42
+	41 -> 42
+	subgraph cluster_5 {
+		color=white
+		42 [label="Dropout
+Rate: 0.1" fillcolor="#f39c12" fontcolor=black shape=Mcircle style=filled]
+	}
+	42 -> 43
+	42 -> 44
+	42 -> 45
+	42 -> 46
+	42 -> 47
+	42 -> 48
+	42 -> 49
+	42 -> 50
+	42 -> 51
+	42 -> 52
+	subgraph cluster_6 {
+		color=white
+		rank=same
+		424242 [label="Units: 16 (+6 more)
+Activation: relu" color=white fontcolor=black fontsize=18 shape=rectangle]
+		43 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		44 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		45 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		46 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		47 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		48 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		49 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		50 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		51 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+		52 [color="#3498db" fontcolor="#3498db" shape=circle style=filled]
+	}
+	43 -> 53
+	44 -> 53
+	45 -> 53
+	46 -> 53
+	47 -> 53
+	48 -> 53
+	49 -> 53
+	50 -> 53
+	51 -> 53
+	52 -> 53
 	subgraph cluster_output {
-		303030 [label="Output Units: 1
+		525252 [label="Output Units: 1
 Activation: sigmoid" color=white fontcolor=black fontsize=18 shape=rectangle]
 		color=white
 		rank=same
 		labeljust=1
-		31 [color="#e74c3c" fontcolor="#e74c3c" shape=circle style=filled]
+		53 [color="#e74c3c" fontcolor="#e74c3c" shape=circle style=filled]
 	}
 	arrowShape=none
 }

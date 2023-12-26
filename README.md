@@ -94,10 +94,9 @@ And here is the plot that shows the f1_score and balanced score of these models.
 
 ![](images/models_base_perf.png)
 
-### Next steps
-The models exhibit higher classification scores, but the issue lies in a notably low true positive prediction, indicating a tendency to classify all transactions as non-fraudulent. To address this, we can enhance model accuracy through:
+### Advanced Techniques
 
-Here are a few additional techniques and/or algorithms we can use to further improve the model accuracy.
+After evaluated the above models and suggested the next steps as documented [here](https://github.com/trguduru/credit_card_fraud_detection_initial#next-steps) trained and evaluated them as stated below.
 
 #### Data Balancing
 The target class (is_fraud) is very imbalanced as fraud transactions are only 0.5% of the entire dataset of 1.2M.
@@ -108,6 +107,12 @@ Use the following techniques to balance this dataset.
 * SMOTE
 * ADASYN
 
+Here are some of the confusion matrixes of these models.
+![](images/random_over_sample_conf_martix.png)
+![](images/smote_cfm.png) ![](images/borderline_smote_cfm.png)
+
+All these oversampling models are accurately predicting *true positive* but these models seems overfit as data duplication  with over sampling techniques and may not perform very well on never seen data.
+
 #### Ensemble Models
 Ensemble techniques and models might improve the accuracy of the models so we can try the following
 
@@ -117,13 +122,65 @@ Ensemble techniques and models might improve the accuracy of the models so we ca
 * RUSBoostingClassifier
 * RandomForestClassifier
 
+Evaluated the above-stated models and here are a few confusion matrixes that talk about how these perform in predicting *true positives*.
+
+![](images/bagging_classifier_cfm.png) ![](images/adaboosting_cfm.png)![](images/rus_cfm.png)![](images/balanced_rfc_cfm.png)
+
+These are some of the plots of the above models and the model **BalancedRandomForestClassifier** predicts more than 95% of *true positive* data.
+
+
 #### Neural Networks
 Applying deep neural network *Dense* models along with cross-validation could also improve the accuracy.
+
+Evaluated deep learning models with and without hyper parameter tuning and here are some of the plots and results of them.
+
+![](images/neral_net_basic_epochs_perf.png)
+
+This plot shows the performance of a basic deep-learning model with epochs in terms of loss and accuracy. If we continue training the model with more and more epochs it seems the performance is increasing but not accurately predicting *true positives*.
+
+Here is the network architecture of this model
+![](images/base_deep_learning_graph.png)
+
+![](images/base_deep_learning_cfm.png)
+
+The basic deep learning model with 2 hidden layers predicted *true positives* close to 70% only.
+
+##### Hyperparameter Tuning
+
+Tuned the deep learning model with **RandomizedSearchCV** and here is the neural network architecture diagram.
+
+![](images/optimized_deep_learning_graph.png)
+
+Added a few regularization layers( Dropouts with 0.2 and 0.1) and also added a few more hidden layers.
+
+![](images/optimized_deep_learning_cfm.png)
+
+The above confusion matrix shows the hyperparameter tuned with **RandomizedSearchCV** and its prediction is even lower than the basic deep learning model.
+
+
+
+### Final Results
+
+Here is the plot which shows all the models trained on this dataset.
+
+![](images/final_perf.png)
+
+It shows that ensemble and over-sampling models are performing better than other models.
+
+The goal of this project is to predict a fraud transaction accurately as this will save money for the financial institutions.
+
+After evaluating all these models the **BalancedRandomForestClassifier** is doing way better than others.
+
+Here are the results that are run on a test dataset which this model has never seen.
+
+![](images/final_cfm.png)
+
+The above confusion matrix shows that it predicts more than 95%  accuracy in fraud transactions.
 
 ### Outline of project
 
 #### Project Organization
-Here are various folder in this project contains the files of this project.
+Here are various folders in this project containing the files of this project.
 * data, it has train and test datasets
 * images, contains various images of the data analysis and model performance plots etc ...
 * jupyter notebook
@@ -139,6 +196,9 @@ To run this project you need to install the following libraries
 * default anaconda environment
 * intel sklearn extensions
 * category_encoders
+* keras_visualizer
+* imblearn
+* sklearn_evaluation
 
 ### Contact and Further Information
 * Guduru, Thirupathi Reddy (https://github.com/trguduru)
