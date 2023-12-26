@@ -4,7 +4,7 @@
 Guduru, Thirupathi Reddy (https://github.com/trguduru)
 
 ### Executive summary
-For the credit card transaction prediction use case, i have used a simulation dataset from *kaggle* and the dataset has 0.5%  of fraud transactions.
+For the credit card transaction prediction use case, I have used a simulation dataset from *kaggle* and the dataset has 0.5%  of fraud transactions.
 
 I have followed CRISP DM techniques to clean the data for training models. Check data processing and feature engineering for additional details.
 
@@ -38,9 +38,9 @@ This is a simulated credit card transaction dataset containing legitimate and fr
 ### Methodology
 I have used the following tools and techniques to classify whether a transaction is fraud or not in machine learning.
 #### Data Analysis
-This dataset has more than 1M rows and more than 20 features.To understand how each feature's data is and how they are related to each other have done the following analysis using various plots from *matplotlib* , *seaborn* and *plotly*.
+This dataset has more than 1M rows and more than 20 features. To understand how each feature's data is and how they are related to each other have done the following analysis using various plots from *matplotlib* , *seaborn* and *plotly*.
 
-Here are some of interesting plots.
+Here are some of the interesting plots.
 
 ![](images/fraud_by_time.png)
 
@@ -62,9 +62,9 @@ This plot shows that there are only 7506 fraud transactions in the dataset which
 * Applied *StandardScaler* to scale the dependent features.
 * Split the data with a test split size of 30% data.
 
-Here are few plots in feature engineering.
+Here are a few plots in feature engineering.
 ![](images/heatmap.png)
-This heatmap shows that positive and negative correlation between various features. It seems lat,long with merchant lat long has a high positive correlation. Amount and fraud are positive and transaction time and age are in negative correlation.
+This heatmap shows that positive and negative correlation between various features. It seems lat, long with merchant lat long has a high positive correlation. Amount and fraud are positive and transaction time and age are in negative correlation.
 
 ![](images/feature_imp.png)
 This plot shows the important features in predicting whether a transaction is fraud or not.
@@ -96,7 +96,7 @@ And here is the plot that shows the f1_score and balanced score of these models.
 
 ### Advanced Techniques
 
-After evaluated the above models and suggested the next steps as documented [here](https://github.com/trguduru/credit_card_fraud_detection_initial#next-steps) trained and evaluated them as stated below.
+After evaluating the above models and as suggested the next steps documented [here](https://github.com/trguduru/credit_card_fraud_detection_initial#next-steps) trained and evaluated them as stated below.
 
 #### Data Balancing
 The target class (is_fraud) is very imbalanced as fraud transactions are only 0.5% of the entire dataset of 1.2M.
@@ -111,7 +111,7 @@ Here are some of the confusion matrixes of these models.
 ![](images/random_over_sample_conf_martix.png)
 ![](images/smote_cfm.png) ![](images/borderline_smote_cfm.png)
 
-All these oversampling models are accurately predicting *true positive* but these models seems overfit as data duplication  with over sampling techniques and may not perform very well on never seen data.
+All these oversampling models accurately predict *true positive* but these models seem to overfit as data duplication with oversampling techniques and may not perform very well on never seen data.
 
 #### Ensemble Models
 Ensemble techniques and models might improve the accuracy of the models so we can try the following
@@ -132,7 +132,7 @@ These are some of the plots of the above models and the model **BalancedRandomFo
 #### Neural Networks
 Applying deep neural network *Dense* models along with cross-validation could also improve the accuracy.
 
-Evaluated deep learning models with and without hyper parameter tuning and here are some of the plots and results of them.
+Evaluated deep learning models with and without hyperparameter tuning and here are some of the plots and results of them.
 
 ![](images/neral_net_basic_epochs_perf.png)
 
@@ -169,13 +169,15 @@ It shows that ensemble and over-sampling models are performing better than other
 
 The goal of this project is to predict a fraud transaction accurately as this will save money for the financial institutions.
 
+
+#### Best Model
 After evaluating all these models the **BalancedRandomForestClassifier** is doing way better than others.
 
 Here are the results that are run on a test dataset which this model has never seen.
 
 ![](images/final_cfm.png)
 
-The above confusion matrix shows that it predicts more than 95%  accuracy in fraud transactions.
+The above confusion matrix shows that it predicts more than 95% accuracy in fraud transactions.
 
 ### Outline of project
 
